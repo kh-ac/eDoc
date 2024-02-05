@@ -3,7 +3,6 @@ import { useRef } from "react";
 import { useTranslation } from "react-i18next";
 import {
   Flex,
-  Heading,
   Link,
   IconButton,
   Drawer,
@@ -14,8 +13,16 @@ import {
   DrawerBody,
   useDisclosure,
   Image,
+  Select,
+  Menu,
+  MenuItem,
+  MenuButton,
+  MenuList,
+  Button,
+  Box,
 } from "@chakra-ui/react";
-import { HamburgerIcon } from "@chakra-ui/icons";
+import { HamburgerIcon, ChevronDownIcon } from "@chakra-ui/icons";
+import { Link as ReactScrollLink } from "react-scroll";
 
 import logo from "../assets/images/logo-no-background.svg";
 
@@ -26,30 +33,31 @@ const Navbar = () => {
   const { t, i18n } = useTranslation();
 
   const lngs = {
-    en: { nativeName: " English" },
-    fr: { nativeName: " French" },
+    ar: { nativeName: "🇩🇿  Arabic" },
+    fr: { nativeName: "🇫🇷  French" },
+    en: { nativeName: "🇺🇸  English" },
   };
 
   //
   const navItems = [
     {
-      name: "Home",
+      name: t("Home"),
       link: "/",
     },
     {
-      name: "Find a Doctor",
+      name: t("Services"),
       link: "/doctors",
     },
     {
-      name: "Apps",
+      name: t("Apps"),
       link: "/apps",
     },
     {
-      name: "Testimonials",
+      name: t("Testimonials"),
       link: "/testimonials",
     },
     {
-      name: "About us",
+      name: t("About us"),
       link: "/about",
     },
   ];
@@ -85,7 +93,6 @@ const Navbar = () => {
         />
 
         {/* Side Drawer */}
-
         <Drawer
           placement="right"
           onClose={onClose}
@@ -98,13 +105,17 @@ const Navbar = () => {
               <DrawerHeader
                 boxShadow={"10px 40px 50px 0px rgba(229, 233, 246, 0.40)"}
               >
-                <Link href="/" _hover={{}}>
-                  <Image
-                    height={{ base: "35px", lg: "50px" }}
-                    src={logo}
-                  ></Image>
-                  {/* <Heading as={"h1"}>eDoc</Heading> */}
-                </Link>
+                <Select
+                  display={{ base: "block", lg: "none" }}
+                  width={"150px"}
+                  textAlign={"center"}
+                  value={i18n.language}
+                  onChange={(e) => i18n.changeLanguage(e.target.value)}
+                >
+                  {Object.keys(lngs).map((lng) => (
+                    <option value={lng}>{lngs[lng].nativeName}</option>
+                  ))}
+                </Select>
               </DrawerHeader>
               <DrawerBody my={"50px"}>
                 {/* Navigation items */}
@@ -138,12 +149,128 @@ const Navbar = () => {
 
         {/* Navigation items */}
         <Flex
+          direction={"row"}
           color={"navbar.links"}
           fontWeight={"400"}
           fontSize={"18px"}
           display={{ base: "none", lg: "block" }}
         >
-          {navItems.map((item) => (
+          <Link
+            href={"/home"}
+            mx={"20px"}
+            fontSize={"18px"}
+            fontWeight={"500"}
+            _hover={{
+              textDecoration: "none",
+              fontWeight: "700",
+            }}
+          >
+            {t("Home")}
+          </Link>
+
+          <Menu>
+            <MenuButton
+              bg={"transparent"}
+              _hover={{
+                bg: "transparent",
+                textDecoration: "none",
+                fontWeight: "700",
+              }}
+              fontSize={"18px"}
+              fontWeight={"500"}
+              textAlign={"center"}
+              as={Button}
+              rightIcon={<ChevronDownIcon />}
+            >
+              {t("Services")}
+            </MenuButton>
+            <MenuList>
+              <MenuItem>
+                <Link
+                  href={"/find-doctor"}
+                  mx={"20px"}
+                  fontSize={"18px"}
+                  fontWeight={"500"}
+                  _hover={{
+                    textDecoration: "none",
+                    fontWeight: "700",
+                  }}
+                >
+                  {t("Find Doctor")}
+                </Link>
+              </MenuItem>
+
+              <MenuItem>
+                <Link
+                  href={"/find-blood-donor"}
+                  mx={"20px"}
+                  fontSize={"18px"}
+                  fontWeight={"500"}
+                  _hover={{
+                    textDecoration: "none",
+                    fontWeight: "700",
+                  }}
+                >
+                  {t("Find Blood Donors")}
+                </Link>
+              </MenuItem>
+            </MenuList>
+          </Menu>
+
+          <Link
+            mx={"20px"}
+            fontSize={"18px"}
+            fontWeight={"500"}
+            _hover={{
+              textDecoration: "none",
+              fontWeight: "700",
+            }}
+          >
+            <ReactScrollLink
+              to="apps"
+              spy={true}
+              smooth={true}
+              offset={-300}
+              duration={500}
+            >
+              {t("Apps")}
+            </ReactScrollLink>
+          </Link>
+
+          <Link
+            mx={"20px"}
+            fontSize={"18px"}
+            fontWeight={"500"}
+            _hover={{
+              textDecoration: "none",
+              fontWeight: "700",
+            }}
+          >
+            <ReactScrollLink
+              to="testimonials"
+              spy={true}
+              smooth={true}
+              offset={-300}
+              duration={500}
+            >
+              {t("Testimonials")}
+            </ReactScrollLink>
+          </Link>
+
+          <Link
+            href={""}
+            mx={"20px"}
+            fontSize={"18px"}
+            fontWeight={"500"}
+            _hover={{
+              textDecoration: "none",
+              fontWeight: "700",
+            }}
+          >
+            {t("About us")}
+          </Link>
+
+          {/* {navItems.map((item) => (
             <Link
               key={item.name}
               href={item.link}
@@ -157,7 +284,7 @@ const Navbar = () => {
             >
               {item.name}
             </Link>
-          ))}
+          ))} */}
         </Flex>
 
         {/* Language Switcher */}
@@ -171,6 +298,18 @@ const Navbar = () => {
             {lngs[lng].nativeName}
           </Button>
         ))} */}
+
+        <Select
+          display={{ base: "none", lg: "block" }}
+          width={"150px"}
+          textAlign={"center"}
+          value={i18n.language}
+          onChange={(e) => i18n.changeLanguage(e.target.value)}
+        >
+          {Object.keys(lngs).map((lng) => (
+            <option value={lng}>{lngs[lng].nativeName}</option>
+          ))}
+        </Select>
 
         {/* Auth */}
         {/* <Flex gap={"2"} display={{ base: "none", lg: "block" }}>

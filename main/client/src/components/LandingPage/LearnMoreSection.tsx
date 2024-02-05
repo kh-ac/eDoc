@@ -1,11 +1,18 @@
 import { Button, Flex, Heading, Text, Image } from "@chakra-ui/react";
 
-import PageSection from "./PageSection";
 import learnMoreImage from "../../assets/images/learn-more-section.png";
 
 const LearnMoreSection = () => {
   return (
-    <PageSection>
+    <Flex
+      //height={"100vh"}
+      height={{base: "900px", md: "100%"}}
+      mx={{ base: "20px", md: "50px", xl: "100px", "2xl": "150px" }}
+      my={"200px"}
+      direction={{ base: "column", md: "row" }}
+      alignItems={"center"}
+      justifyContent={{ base: "space-evenly" }}
+    >
       {/* Image */}
       <Image
         width={{
@@ -16,7 +23,7 @@ const LearnMoreSection = () => {
           "2xl": "650px",
         }}
         src={learnMoreImage}
-        mb={{ base: "100px", lg: "0px" }}
+        // mb={{ base: "100px", lg: "0px" }}
       ></Image>
 
       {/* Texts */}
@@ -24,7 +31,6 @@ const LearnMoreSection = () => {
         width={{
           base: "250px",
           md: "45%",
-
           "2xl": "35%",
         }}
         direction={"column"}
@@ -78,7 +84,7 @@ const LearnMoreSection = () => {
           Learn More
         </Button>
       </Flex>
-    </PageSection>
+    </Flex>
   );
 };
 

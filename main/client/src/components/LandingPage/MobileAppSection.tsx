@@ -1,12 +1,20 @@
 import { Button, Flex, Heading, Text, Image } from "@chakra-ui/react";
 import { ArrowDownIcon } from "@chakra-ui/icons";
 
-import PageSection from "./PageSection";
 import mobileAppSection from "../../assets/images/mobile-app-section.png";
 
 const MobileAppSection = () => {
   return (
-    <PageSection>
+    <Flex
+      id={"apps"}
+      //height={"100vh"}
+      height={{ base: "900px", md: "100%" }}
+      my={"200px"}
+      mx={{ base: "20px", md: "50px", xl: "100px", "2xl": "150px" }}
+      direction={{ base: "column", md: "row" }}
+      alignItems={"center"}
+      justifyContent={{ base: "space-evenly" }}
+    >
       {/* Texts */}
       <Flex
         width={{
@@ -17,7 +25,7 @@ const MobileAppSection = () => {
         alignItems={{ base: "center", md: "start" }}
         textAlign={{ base: "center", md: "start" }}
         justifyContent={"center"}
-        mb={{ base: "100px", md: "0px" }}
+        //mb={{ base: "100px", md: "0px" }}
       >
         <Heading
           // width={{
@@ -84,7 +92,7 @@ const MobileAppSection = () => {
         }}
         src={mobileAppSection}
       ></Image>
-    </PageSection>
+    </Flex>
   );
 };
 

@@ -34,7 +34,7 @@ const TestimonialSection = () => {
   ];
 
   return (
-    <Box mb={"200px"}>
+    <Box id={"testimonials"} my={"200px"}>
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y]}
         navigation

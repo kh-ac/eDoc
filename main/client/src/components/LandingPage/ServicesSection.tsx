@@ -62,8 +62,9 @@ const ServicesSection = () => {
 
   return (
     <Flex
+      id="services"
       mx={{ base: "20px", lg: "250px" }}
-      mb={"200px"}
+      my={"200px"}
       direction={"column"}
       alignItems={"center"}
     >

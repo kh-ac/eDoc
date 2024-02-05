@@ -30,7 +30,7 @@ const ArticlesSection = () => {
   return (
     <Box
       textAlign={"center"}
-      mb={"200px"}
+      my={"200px"}
       mx={{ base: "20px", md: "50px", "2xl": "200px" }}
     >
       <Flex mb={"35px"} direction={"column"} alignItems={"center"}>

@@ -1,7 +1,6 @@
 import { Flex, Heading, Image, Text, Button } from "@chakra-ui/react";
 import { useTranslation } from "react-i18next";
 
-import PageSection from "./PageSection";
 import searchDoctorImg from "../../assets/images/search-doctor-section.png";
 import { Link } from "react-router-dom";
 
@@ -9,7 +8,14 @@ const DoctorSearchSection = () => {
   const { t } = useTranslation();
 
   return (
-    <PageSection>
+    <Flex
+      height={"100vh"}
+      mx={{ base: "20px", md: "50px", xl: "100px", "2xl": "150px" }}
+      mt={{ base: "100px", md: "0" }}
+      direction={{ base: "column", md: "row" }}
+      alignItems={"center"}
+      justifyContent={{ base: "space-evenly" }}
+    >
       {/* Texts */}
       <Flex
         width={{
@@ -34,9 +40,7 @@ const DoctorSearchSection = () => {
           fontSize={{ base: "32px", lg: "48px" }}
           fontWeight={"700"}
         >
-          Virtual Healthcare
-          <br />
-          for you
+          {t("Healthcare Made Easy")}
         </Heading>
 
         <Text
@@ -52,9 +56,7 @@ const DoctorSearchSection = () => {
           fontSize={{ base: "18px", lg: "21px" }}
           fontWeight={"300"}
         >
-          {" "}
-          eDoc offers modern and cost-effective healthcare solutions that are
-          available to everyone through mobile and online platforms.
+          {t("eDoc offers")}
         </Text>
 
         <Button
@@ -85,7 +87,7 @@ const DoctorSearchSection = () => {
         }}
         src={searchDoctorImg}
       ></Image>
-    </PageSection>
+    </Flex>
   );
 };
 

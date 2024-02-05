@@ -1,4 +1,10 @@
 {
-  "Home": "Principal",
-  "eDoc": "eDocFr"
+  "Home": "Accueil",
+  "Services": "Services",
+  "Apps": "Apps",
+  "Testimonials": "Témoignages",
+  "About us": "À propos de nous",
+  "Healthcare Made Easy": "Soins de santé simplifiés",
+
+  "eDoc offers": "eDoc propose des solutions de soins de santé modernes et rentables qui sont disponibles pour tous via des plateformes mobiles et en ligne."
 }
