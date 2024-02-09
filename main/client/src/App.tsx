@@ -8,11 +8,15 @@ import "@fontsource/mulish/400.css";
 import "@fontsource/mulish/300.css";
 
 import Routes from "./router/routes";
+import { ApolloProvider } from "@apollo/client";
+import client from "./services/apollo-client";
 
 export default function App() {
   return (
-    <ChakraProvider theme={theme}>
-      <Routes />
-    </ChakraProvider>
+    <ApolloProvider client={client}>
+      <ChakraProvider theme={theme}>
+        <Routes />
+      </ChakraProvider>
+    </ApolloProvider>
   );
 }

@@ -1,6 +1,5 @@
 import gql from "graphql-tag";
-
-const doctorSchema = gql`
+const doctorSchema = gql `
   type Query {
     doctors(
       wilaya: String
@@ -12,5 +11,4 @@ const doctorSchema = gql`
     doctorsCount(wilaya: String, specialty: String): Int!
   }
 `;
-
 export default doctorSchema;

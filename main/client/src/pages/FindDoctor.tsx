@@ -7,23 +7,27 @@ import {
   Heading,
   Image,
   Select,
-  VStack,
   Text,
   Badge,
 } from "@chakra-ui/react";
 import { useFormik } from "formik";
+import { useNavigate } from "react-router-dom";
 
 import Navbar from "../components/Navbar";
 import findDoctorImg from "../assets/images/find-doctor.svg";
 
 const FindDoctor = () => {
+  const navigate = useNavigate();
+
   const formik = useFormik({
     initialValues: {
       specialization: "",
       wilaya: "",
     },
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+      navigate(
+        `/doctors?specialty=${values.specialization}&wilaya=${values.wilaya}`
+      );
     },
   });
 
@@ -289,64 +293,64 @@ const FindDoctor = () => {
 
   const wilayas = [
     // { value: 0, text: "Wilaya ..." },
-    { value: 1, text: "Adrar" },
-    { value: 2, text: "Chlef" },
-    { value: 3, text: "Laghouat" },
-    { value: 4, text: "Oum El Bouaghi" },
-    { value: 5, text: "Batna" },
-    { value: 6, text: "Béjaïa" },
-    { value: 7, text: "Biskra" },
-    { value: 8, text: "Béchar" },
-    { value: 9, text: "Blida" },
-    { value: 10, text: "Bouira" },
-    { value: 11, text: "Tamanrasset" },
-    { value: 12, text: "Tébessa" },
-    { value: 13, text: "Tlemcen" },
-    { value: 14, text: "Tiaret" },
-    { value: 15, text: "Tizi Ouzou" },
-    { value: 16, text: "Alger" },
-    { value: 17, text: "Djelfa" },
-    { value: 18, text: "Jijel" },
-    { value: 19, text: "Sétif" },
-    { value: 20, text: "Saïda" },
-    { value: 21, text: "Skikda" },
-    { value: 22, text: "Sidi Bel Abbès" },
-    { value: 23, text: "Annaba" },
-    { value: 24, text: "Guelma" },
-    { value: 25, text: "Constantine" },
-    { value: 26, text: "Médéa" },
-    { value: 27, text: "Mostaganem" },
-    { value: 28, text: "M'Sila" },
-    { value: 29, text: "Mascara" },
-    { value: 30, text: "Ouargla" },
-    { value: 31, text: "Oran" },
-    { value: 32, text: "El Bayadh" },
-    { value: 33, text: "Illizi" },
-    { value: 34, text: "Bordj Bou Arreridj" },
-    { value: 35, text: "Boumerdès" },
-    { value: 36, text: "El Tarf" },
-    { value: 37, text: "Tindouf" },
-    { value: 38, text: "Tissemsilt" },
-    { value: 39, text: "El Oued" },
-    { value: 40, text: "Khenchela" },
-    { value: 41, text: "Souk Ahras" },
-    { value: 42, text: "Tipaza" },
-    { value: 43, text: "Mila" },
-    { value: 44, text: "Aïn Defla" },
-    { value: 45, text: "Naâma" },
-    { value: 46, text: "Aïn Témouchent" },
-    { value: 47, text: "Ghardaïa" },
-    { value: 48, text: "Relizane" },
-    { value: 49, text: "Timimoun" },
-    { value: 50, text: "Bordj Badji Mokhtar" },
-    { value: 51, text: "Ouled Djellal" },
-    { value: 52, text: "Béni Abbès" },
-    { value: 53, text: "In Salah" },
-    { value: 54, text: "In Guezzam" },
-    { value: 55, text: "Touggourt" },
-    { value: 56, text: "Djanet" },
-    { value: 57, text: "El MGhair" },
-    { value: 58, text: "El Meniaa" },
+    "Adrar",
+    "Chlef",
+    "Laghouat",
+    "Oum El Bouaghi",
+    "Batna",
+    "Béjaïa",
+    "Biskra",
+    "Béchar",
+    "Blida",
+    "Bouira",
+    "Tamanrasset",
+    "Tébessa",
+    "Tlemcen",
+    "Tiaret",
+    "Tizi Ouzou",
+    "Alger",
+    "Djelfa",
+    "Jijel",
+    "Sétif",
+    "Saïda",
+    "Skikda",
+    "Sidi Bel Abbès",
+    "Annaba",
+    "Guelma",
+    "Constantine",
+    "Médéa",
+    "Mostaganem",
+    "M'Sila",
+    "Mascara",
+    "Ouargla",
+    "Oran",
+    "El Bayadh",
+    "Illizi",
+    "Bordj Bou Arreridj",
+    "Boumerdès",
+    "El Tarf",
+    "Tindouf",
+    "Tissemsilt",
+    "El Oued",
+    "Khenchela",
+    "Souk Ahras",
+    "Tipaza",
+    "Mila",
+    "Aïn Defla",
+    "Naâma",
+    "Aïn Témouchent",
+    "Ghardaïa",
+    "Relizane",
+    "Timimoun",
+    "Bordj Badji Mokhtar",
+    "Ouled Djellal",
+    "Béni Abbès",
+    "In Salah",
+    "In Guezzam",
+    "Touggourt",
+    "Djanet",
+    "El MGhair",
+    "El Meniaa",
   ];
 
   const doctors = [
@@ -428,7 +432,7 @@ const FindDoctor = () => {
                   placeholder="Select Wilaya"
                 >
                   {wilayas.map((wilaya) => (
-                    <option value={wilaya.value}>{wilaya.text}</option>
+                    <option value={wilaya}>{wilaya}</option>
                   ))}
                 </Select>
               </FormControl>
@@ -480,84 +484,3 @@ const FindDoctor = () => {
 
 export default FindDoctor;
 
-const DoctorCard = ({ picture, fullName, specialization, address }) => {
-  return (
-    <Flex
-      height={"250px"}
-      width={"50%"}
-      my={"20px"}
-      // maxW="sm"
-      borderWidth="1px"
-      borderRadius="lg"
-      overflow="hidden"
-      p={10}
-      boxShadow="md"
-      justifyContent={"space-between"}
-      alignItems={"center"}
-    >
-      <Flex>
-        <Image
-          mr={"50px"}
-          src={picture}
-          alt={`${fullName}'s picture`}
-          borderRadius="full"
-          boxSize="150px"
-        />
-
-        <Flex direction={"column"} justifyContent={"space-evenly"}>
-          <Text fontWeight="bold" fontSize="lg">
-            {fullName}
-          </Text>
-          <Text color="gray.600" fontSize="sm" mt={1}>
-            {specialization}
-          </Text>
-          <Badge textAlign={"center"} colorScheme="teal" mt={2}>
-            {address}
-          </Badge>
-        </Flex>
-      </Flex>
-
-      <Flex
-        height={"100%"}
-        direction={"column"}
-        justifyContent={"space-evenly"}
-      >
-        <Button
-          width={"200px"}
-          height={"60px"}
-          // mt={"50px"}
-          // borderRadius={"55px"}
-          bg={"primary"}
-          color={"white"}
-          _hover={{
-            bg: "white",
-            color: "primary",
-            border: "1px solid",
-            borderColor: "primary",
-          }}
-        >
-          Make an Appointment
-        </Button>
-
-        <Button
-          width={"200px"}
-          height={"60px"}
-          // mt={"50px"}
-          // borderRadius={"55px"}
-          border={"1px solid"}
-          borderColor={"primary"}
-          bg={"white"}
-          color={"primary"}
-          _hover={{
-            bg: "primary",
-            color: "white",
-            border: "1px solid",
-            borderColor: "white",
-          }}
-        >
-          View Full Profile
-        </Button>
-      </Flex>
-    </Flex>
-  );
-};

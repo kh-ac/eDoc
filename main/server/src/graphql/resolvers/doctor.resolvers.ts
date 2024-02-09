@@ -1,9 +1,30 @@
+import { GraphQLError } from "graphql";
 import Doctor from "../../models/doctor";
 
 const doctorResolvers = {
   Query: {
-    doctors: async () => {
-      return await Doctor.getAllDoctors();
+    doctors: async (_, { wilaya, specialty, offset, limit }) => {
+      try {
+        if (!wilaya || !specialty)
+          return new GraphQLError(
+            "Please provide a valid wilaya and specialty",
+          );
+        return await Doctor.getDoctors({ wilaya, specialty, offset, limit });
+      } catch (error) {
+        console.log("Error finding doctors:", error);
+      }
+    },
+
+    doctorsCount: async (_, { wilaya, specialty }) => {
+      try {
+        if (!wilaya || !specialty)
+          return new GraphQLError(
+            "Please provide a valid wilaya and specialty",
+          );
+        return await Doctor.getDoctorsCount({ wilaya, specialty });
+      } catch (error) {
+        console.log("Error finding doctors:", error);
+      }
     },
     // doctor: async (parent, { id }, { models }) => {
     //   return await models.Doctor.findByPk(id);

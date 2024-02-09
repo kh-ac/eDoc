@@ -1,6 +1,5 @@
 import gql from "graphql-tag";
-
-const doctorTypeDefs = gql`
+const doctorTypeDefs = gql `
   type Doctor {
     id: ID!
     fullNameEn: String!
@@ -17,5 +16,4 @@ const doctorTypeDefs = gql`
     updatedAt: String
   }
 `;
-
 export default doctorTypeDefs;
