@@ -68,18 +68,17 @@ export default function DoctorsPage() {
 
   if (data && doctorsCountdata)
     return (
-      <Box>
+      <Box width="100%" mt={"150px"}>
         <Navbar />
 
-        <Flex>
-            <form action=""></form>
-        </Flex>
-
         {data.doctors.length > 0 ? (
-          <Flex direction={"column"} alignItems={"center"}>
-            <Box height={"150px"}></Box>
-
-            <Text textAlign={"left"} width={"750px"} fontSize="xl">
+          <Flex
+            width={"100%"}
+            direction={"column"}
+            alignItems={"center"}
+            //py={"100px"}
+          >
+            <Text textAlign={"center"} width={"100%"} fontSize="xl">
               {doctorsCountdata.doctorsCount} Doctors found
             </Text>
 
@@ -87,24 +86,28 @@ export default function DoctorsPage() {
               <DoctorCard key={doctor.id} doctor={doctor} />
             ))}
 
-            <Button
-              textColor={"black"}
-              bgColor={"primary"}
-              mt={4}
-              mb={"100px"}
-              bg={"primary"}
-              color={"white"}
-              _hover={{
-                bg: "white",
-                color: "primary",
-                border: "1px solid",
-                borderColor: "primary",
-              }}
-              onClick={loadMore}
-              isLoading={loadingMore}
-            >
-              Load More
-            </Button>
+            {data.doctors.length < doctorsCountdata.doctorsCount && (
+              <Button
+                textColor={"black"}
+                bgColor={"primary"}
+                mt={4}
+                mb={"100px"}
+                bg={"primary"}
+                color={"white"}
+                _hover={{
+                  bg: "white",
+                  color: "primary",
+                  border: "1px solid",
+                  borderColor: "primary",
+                }}
+                onClick={loadMore}
+                isLoading={loadingMore}
+              >
+                View More
+              </Button>
+            )}
+
+            <Box height={"100px"}></Box>
           </Flex>
         ) : (
           <Center height={"100vh"} flexDirection={"column"}>
@@ -121,87 +124,104 @@ export default function DoctorsPage() {
 
 const DoctorCard = ({ doctor }) => {
   return (
-    <Flex
-      height={"250px"}
-      width={"750px"}
-      my={"20px"}
-      // maxW="sm"
-      borderWidth="1px"
-      borderRadius="lg"
-      overflow="hidden"
-      p={10}
-      boxShadow="md"
-      justifyContent={"space-between"}
-      alignItems={"center"}
-    >
-      <Flex>
+    <Box width={{ base: "90%", sm: "80%", lg: "800px" }} my={5}>
+      <Flex
+        width={"100%"}
+        direction={{ base: "column", lg: "row" }}
+        borderWidth="1px"
+        borderRadius="lg"
+        overflow="hidden"
+        p={10}
+        boxShadow="md"
+        justifyContent={"space-evenly"}
+        alignItems={"center"}
+      >
         <Image
-          mr={"50px"}
           src={blanckProfilePicture}
           alt={`${doctor.fullNameEn}'s picture`}
           borderRadius="full"
           boxSize="150px"
+          mb={{ base: "20px", lg: "0" }}
+          mr={{ base: "0", lg: "40px" }}
         />
 
+        {/* info */}
         <Flex
           direction={"column"}
           justifyContent={"space-evenly"}
-          width={"60%"}
+          alignItems={{ base: "center", lg: "start" }}
+          width={{ base: "80%", lg: "500px" }}
         >
-          <Text fontWeight="bold" fontSize="lg">
+          <Text
+            noOfLines={2}
+            fontWeight="bold"
+            fontSize="lg"
+            textAlign={{ base: "center", lg: "start" }}
+          >
             {doctor.fullNameEn}
           </Text>
-          <Text noOfLines={"1"} color="gray.600" fontSize="sm" mt={1}>
+          <Text
+            noOfLines={1}
+            color="gray.600"
+            fontSize="sm"
+            mt={1}
+            textAlign={{ base: "center", lg: "start" }}
+          >
             {doctor.specialties + "."}
           </Text>
-          <Badge width={"150px"} textAlign={"center"} colorScheme="teal" mt={2}>
+          <Badge
+            //width={{ base: "100%", sm: "50%", md: "60%", lg: "200px" }}
+            textAlign={"center"}
+            colorScheme="teal"
+            mt={2}
+            px={4}
+          >
             {doctor.city}
           </Badge>
         </Flex>
-      </Flex>
 
-      <Flex
-        height={"100%"}
-        direction={"column"}
-        justifyContent={"space-evenly"}
-      >
-        <Button
-          width={"200px"}
-          height={"60px"}
-          // mt={"50px"}
-          // borderRadius={"55px"}
-          bg={"primary"}
-          color={"white"}
-          _hover={{
-            bg: "white",
-            color: "primary",
-            border: "1px solid",
-            borderColor: "primary",
-          }}
+        <Flex
+          height={"200px"}
+          direction={"column"}
+          alignItems={"center"}
+          justifyContent={"space-evenly"}
         >
-          Make an Appointment
-        </Button>
+          <Button
+            width={{ base: "100%", lg: "100%" }}
+            height={"60px"}
+            bg={"primary"}
+            color={"white"}
+            fontSize={{ base: "14px" }}
+            _hover={{
+              bg: "white",
+              color: "primary",
+              border: "1px solid",
+              borderColor: "primary",
+            }}
+          >
+            Make an Appointment
+          </Button>
 
-        <Button
-          width={"200px"}
-          height={"60px"}
-          // mt={"50px"}
-          // borderRadius={"55px"}
-          border={"1px solid"}
-          borderColor={"primary"}
-          bg={"white"}
-          color={"primary"}
-          _hover={{
-            bg: "primary",
-            color: "white",
-            border: "1px solid",
-            borderColor: "white",
-          }}
-        >
-          View Full Profile
-        </Button>
+          <Button
+            width={{ base: "100%", lg: "100%" }}
+            height={"60px"}
+            border={"1px solid"}
+            borderColor={"primary"}
+            fontSize={{ base: "14px" }}
+            bg={"white"}
+            color={"primary"}
+            _hover={{
+              bg: "primary",
+              color: "white",
+              border: "1px solid",
+              borderColor: "white",
+            }}
+          >
+            View Full Profile
+          </Button>
+        </Flex>
       </Flex>
-    </Flex>
+    </Box>
   );
 };
 

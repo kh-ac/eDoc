@@ -353,61 +353,31 @@ const FindDoctor = () => {
     "El Meniaa",
   ];
 
-  const doctors = [
-    {
-      picture: "https://bit.ly/dan-abramov",
-      fullName: "Dr. John Doe",
-      specialization: "Cardiologist",
-      address: "Algiers",
-    },
-    {
-      picture: "https://bit.ly/dan-abramov",
-      fullName: "Dr. Jane Doe",
-      specialization: "Dentist",
-      address: "Oran",
-    },
-    {
-      picture: "https://bit.ly/dan-abramov",
-      fullName: "Dr. John Doe",
-      specialization: "Cardiologist",
-      address: "Algiers",
-    },
-    {
-      picture: "https://bit.ly/dan-abramov",
-      fullName: "Dr. Jane Doe",
-      specialization: "Dentist",
-      address: "Oran",
-    },
-    {
-      picture: "https://bit.ly/dan-abramov",
-      fullName: "Dr. John Doe",
-      specialization: "Cardiologist",
-      address: "Algiers",
-    },
-    {
-      picture: "https://bit.ly/dan-abramov",
-      fullName: "Dr. Jane Doe",
-      specialization: "Dentist",
-      address: "Oran",
-    },
-  ];
-
   return (
-    <Flex direction={"column"} height={"100vh"} width={"100%"} mt={"150px"}>
+    <Flex
+      direction={"column"}
+      height={"100vh"}
+      width={"100%"}
+      //mt={"100px"}
+      justifyContent={"center"}
+    >
       <Navbar />
 
       <Flex
-        mt={"150px"}
-        mx={{ base: "20px", md: "50px", xl: "100px", "2xl": "150px" }}
-        justifyContent={"space-between"}
+        width={"100%"}
+        my={{ base: "20px", md: "50px", xl: "100px", "2xl": "150px" }}
+        px={{ base: "20px", md: "50px", xl: "100px", "2xl": "150px" }}
+        direction={{ base: "column", md: "row" }}
+        justifyContent={{ base: "center", md: "space-between" }}
+        alignItems={{ base: "center" }}
       >
         {/* Form */}
-        <Box width={"40%"}>
-          <Heading mb={"50px"}>
+        <Box width={{ base: "90%", md: "40%" }}>
+          <Heading mb={"50px"} fontSize={{ base: "22px", sm: "32px" }}>
             Make an online appointment at a Healthcare center
           </Heading>
           <form onSubmit={formik.handleSubmit}>
-            <Flex direction={"column"}>
+            <Flex direction={"column"} gap={4}>
               <FormControl>
                 <FormLabel>Specialization</FormLabel>
                 <Select
@@ -462,10 +432,11 @@ const FindDoctor = () => {
           width={{
             base: "250px",
             sm: "300px",
-            md: "45%",
+            md: "50%",
             "2xl": "650px",
           }}
           src={findDoctorImg}
+          display={{ base: "none", md: "block" }}
         ></Image>
       </Flex>
 
@@ -483,4 +454,3 @@ const FindDoctor = () => {
 };
 
 export default FindDoctor;
-

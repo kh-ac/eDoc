@@ -156,7 +156,7 @@ const Navbar = () => {
           display={{ base: "none", lg: "block" }}
         >
           <Link
-            href={"/home"}
+            href={"/"}
             mx={"20px"}
             fontSize={"18px"}
             fontWeight={"500"}
@@ -227,7 +227,7 @@ const Navbar = () => {
             }}
           >
             <ReactScrollLink
-              to="apps"
+              to="/apps"
               spy={true}
               smooth={true}
               offset={-300}
