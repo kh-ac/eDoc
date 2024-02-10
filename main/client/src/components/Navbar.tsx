@@ -1,4 +1,4 @@
-import { useRef } from "react";
+//import { useRef } from "react";
 
 import { useTranslation } from "react-i18next";
 import {
@@ -19,20 +19,24 @@ import {
   MenuButton,
   MenuList,
   Button,
-  Box,
 } from "@chakra-ui/react";
 import { HamburgerIcon, ChevronDownIcon } from "@chakra-ui/icons";
 import { Link as ReactScrollLink } from "react-scroll";
 
 import logo from "../assets/images/logo-no-background.svg";
 
+// Interfaces and Types
+interface Lngs {
+  [key: string]: { nativeName: string };
+}
+
 const Navbar = () => {
   //
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const sideMenuBtn = useRef();
+  //const sideMenuBtn = useRef();
   const { t, i18n } = useTranslation();
 
-  const lngs = {
+  const lngs: Lngs = {
     ar: { nativeName: "🇩🇿  Arabic" },
     fr: { nativeName: "🇫🇷  French" },
     en: { nativeName: "🇺🇸  English" },
@@ -84,7 +88,7 @@ const Navbar = () => {
 
         {/* Hamburger Icon for smaller devices */}
         <IconButton
-          ref={sideMenuBtn}
+          //ref={sideMenuBtn}
           aria-label="Open Menu"
           display={{ base: "block", lg: "none" }}
           icon={<HamburgerIcon />}
@@ -97,7 +101,7 @@ const Navbar = () => {
           placement="right"
           onClose={onClose}
           isOpen={isOpen}
-          finalFocusRef={sideMenuBtn}
+          //finalFocusRef={sideMenuBtn}
         >
           <DrawerOverlay>
             <DrawerContent>
@@ -227,7 +231,7 @@ const Navbar = () => {
             }}
           >
             <ReactScrollLink
-              to="/apps"
+              to="apps"
               spy={true}
               smooth={true}
               offset={-300}

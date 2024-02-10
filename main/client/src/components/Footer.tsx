@@ -38,8 +38,8 @@ const Footer = () => {
             lineHeight={"28px"}
             mb={{ base: "15px", xl: "0px" }}
           >
-            Trafalgar provides progressive, and affordable healthcare,
-            accessible on mobile and online for everyone
+            eDoc provides progressive, and affordable healthcare, accessible on
+            mobile and online for everyone.
           </Text>
 
           {/*Copyright*/}

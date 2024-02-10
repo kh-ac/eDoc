@@ -20,6 +20,7 @@ import noDataImg from "../../assets/images/no-data.svg";
 import blanckProfilePicture from "../../assets/images/blank-profile-picture-973460.svg";
 
 import Navbar from "../../components/Navbar";
+import Doctor from "../../models/doctor";
 
 export default function DoctorsPage() {
   const [loadingMore, setLoadingMore] = useState(false);
@@ -82,7 +83,7 @@ export default function DoctorsPage() {
               {doctorsCountdata.doctorsCount} Doctors found
             </Text>
 
-            {data.doctors.map((doctor) => (
+            {data.doctors.map((doctor: Doctor) => (
               <DoctorCard key={doctor.id} doctor={doctor} />
             ))}
 
@@ -122,7 +123,7 @@ export default function DoctorsPage() {
     );
 }
 
-const DoctorCard = ({ doctor }) => {
+const DoctorCard = ({ doctor }: { doctor: Doctor }) => {
   return (
     <Box width={{ base: "90%", sm: "80%", lg: "800px" }} my={5}>
       <Flex
