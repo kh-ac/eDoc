@@ -146,41 +146,6 @@ class Doctor {
     return `Doctor { id: ${this._id}, fullNameEn: ${this._fullNameEn}, fullNameAr: ${this._fullNameAr}, workTime: ${this._workTime}, specialties: ${this._specialties}, wilaya: ${this._wilaya}, city: ${this._city}, address: ${this._address}, email: ${this._email}, phone1: ${this._phone1}, phone2: ${this._phone2}, createdAt: ${this._createdAt}, updatedAt: ${this._updatedAt} }`;
   }
 
-  //   public static fromJSON(json: any): Doctor {
-  //     return new Doctor(
-  //       json.id,
-  //       json.firstName,
-  //       json.lastName,
-  //       json.email,
-  //       json.phone,
-  //       json.address,
-  //       json.specialty,
-  //       json.createdAt,
-  //       json.updatedAt,
-  //     );
-  //   }
-
-  //   public toJSON(): any {
-  //     return {
-  //       id: this._id,
-  //       firstName: this._firstName,
-  //       lastName: this._lastName,
-  //       email: this._email,
-  //       phone: this._phone,
-  //       address: this._address,
-  //       specialty: this._specialty,
-  //       createdAt: this._createdAt,
-  //       updatedAt: this._updatedAt,
-  //     };
-  //   }
-
-  //   public static fromJSONArray(json: any[]): Doctor[] {
-  //     return json.map((item) => Doctor.fromJSON(item));
-  //   }
-
-  //   public static toJSONArray(json: Doctor[]): any[] {
-  //     return json.map((item) => item.toJSON());
-  //   }
 
   //
   public static async getAllDoctors() {
@@ -201,7 +166,7 @@ class Doctor {
         },
       });
     } catch (error) {
-      console.error("Error finding doctors:", error);
+      //console.error("Error finding doctors:", error);
     }
   }
 
@@ -216,7 +181,7 @@ class Doctor {
         },
       });
     } catch (error) {
-      console.error("Error finding doctors:", error);
+      //console.error("Error finding doctors:", error);
     }
   }
 }
