@@ -39,17 +39,17 @@ A Healthcare services website.
   `git https://github.com/kh-ac/eDoc.git`
 
 - go to project directory \
-  `cd eDoc/main/eDoc`
+  `cd eDoc/main` 
 
 - to start the server in dev mode \
   `cd server` \
   `npm i` \
-  `npm run start:dev`\
+  `npm run start:dev`
 
 - to start the website (client) in dev mode \
- `cd server` \
+  `cd client` \
   `npm i` \
   `npm run dev`\
 
-- The website will be runing on `http://localhost:5173/`
+- The website will be runing on: `http://localhost:5173/`
 
