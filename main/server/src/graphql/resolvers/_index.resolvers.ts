@@ -1,4 +1,4 @@
-import doctorResolvers from "./doctor.resolvers";
+import doctorResolvers from "./doctor.resolvers.js";
 
 const allResolvers = [doctorResolvers];
 

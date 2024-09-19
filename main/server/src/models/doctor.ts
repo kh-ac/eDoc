@@ -1,4 +1,4 @@
-import PrismaClientSingleton from "./prisma-client";
+import PrismaClientSingleton from "./prisma-client.js";
 
 const prisma = PrismaClientSingleton.getInstance();
 

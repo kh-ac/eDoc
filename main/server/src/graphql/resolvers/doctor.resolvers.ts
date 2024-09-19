@@ -1,5 +1,5 @@
 import { GraphQLError } from "graphql";
-import Doctor from "../../models/doctor";
+import Doctor from "../../models/doctor.js";
 
 const doctorResolvers = {
   Query: {
