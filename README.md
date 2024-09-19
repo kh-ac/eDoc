@@ -28,6 +28,7 @@ A Healthcare services website.
 - **Node.js**: Node.js is a JavaScript runtime environment that allows developers to run JavaScript on the server-side.
 - **Express.js**: or simply Express, is a back end web application framework for building RESTful APIs with Node.js.
 - **GraphQL APIs**: GraphQL is a data query and manipulation language for APIs, that allows a client to specify what data it needs.
+- **PostgreSQL**: PostgreSQL also known as Postgres, is a free and open-source relational database management system emphasizing extensibility and SQL compliance.
 - **Prisma**: Prisma helps us unify data access from multiple enterprise systems into a single API. It means we can move very quickly whilst staying flexible.
 - **Docker**: Docker is a set of platform as a service products that use OS-level virtualization to deliver software in packages called containers.
 
@@ -38,7 +39,7 @@ A Healthcare services website.
 ## How to use it
 
 - clone the repo : \
-  `git https://github.com/kh-ac/eDoc.git`
+  `git clone https://github.com/kh-ac/eDoc.git`
 
 - go to project directory \
   `cd eDoc/main` 
