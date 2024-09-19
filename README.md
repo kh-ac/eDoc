@@ -1,5 +1,7 @@
 # eDoc
 
+<img src = "demo/edoc.png">
+
 ## What is it ?
 
 A Healthcare services website.
